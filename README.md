@@ -278,9 +278,16 @@ Program Müfredatı (ProgramCourse):
 
 ---
 
-## 📤 Submission & Git Workflow
+## 📥 How to Clone & Run
 
 ```bash
-git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>.git
-git push -u origin main
+# Clone the repository:
+git clone https://github.com/sudehatka/Student-Information-System.git
+
+# Navigate to project directory:
+cd Student-Information-System
+
+# Compile and run:
+javac -encoding UTF-8 -d out src/*.java
+java -cp out Main
 ```
