@@ -240,19 +240,6 @@ erDiagram
 | `ACADEMIC_TERMS` | `AcademicTerm` | - | `Semester` |
 | `PROGRAM_COURSES` | `ProgramCourse` | `program` ➔ `Program`<br>`course` ➔ `Course` | `CourseType` |
 
----
-
-## 🚀 Installation & Usage
-
-1. **Compile the source code:**
-   ```bash
-   javac -encoding UTF-8 -d out src/*.java
-   ```
-
-2. **Run the program:**
-   ```bash
-   java -cp out Main
-   ```
 
 ---
 
