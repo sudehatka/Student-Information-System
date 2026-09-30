@@ -276,18 +276,3 @@ Program Müfredatı (ProgramCourse):
    * Kayıt Tarihi          : 2026-10-01T01:14:13.575426100
 ```
 
----
-
-## 📥 How to Clone & Run
-
-```bash
-# Clone the repository:
-git clone https://github.com/sudehatka/Student-Information-System.git
-
-# Navigate to project directory:
-cd Student-Information-System
-
-# Compile and run:
-javac -encoding UTF-8 -d out src/*.java
-java -cp out Main
-```
