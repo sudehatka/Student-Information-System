@@ -5,7 +5,6 @@
 ![Design Pattern](https://img.shields.io/badge/Architecture-JavaBean%20%2F%20OOP-blue)
 ![OOP Principles](https://img.shields.io/badge/OOP-Inheritance%20%26%20Encapsulation-purple)
 ![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-green)
 ![Deadline](https://img.shields.io/badge/Deadline-September%2028-red)
 
 ---
@@ -21,9 +20,9 @@
 
 ## 📝 About the Project
 
-This project models a university's **Student Information System (SIS)**. It is developed in strict accordance with the relational database schema (ER Diagram) provided in the course assignment and implements Object-Oriented Programming (**OOP**) principles and **JavaBean** standards.
+This project models a university's **Student Information System (SIS)**. It is developed in strict accordance with the official relational database schema ([Db-scheme.pdf](Db-scheme.pdf)) provided in the course assignment and implements Object-Oriented Programming (**OOP**) principles and **JavaBean** standards.
 
-> 💡 **Version Note:** This repository will be continuously updated throughout the semester with subsequent assignments and features (database integration via JDBC/JPA, design patterns, layered service architecture, etc.). The current version represents the core domain model and initial registration simulation.
+> 💡 **Version Note:** This repository will be continuously updated throughout the semester with subsequent assignments and features (database integration via JDBC/JPA, design patterns, layered service architecture, etc.). The current version represents the core domain model, inheritance hierarchy, and initial registration simulation.
 
 ---
 
@@ -181,8 +180,6 @@ erDiagram
     COURSES ||--o{ COURSE_PREREQUISITES : "prerequisite_course_id"
 ```
 
-> 📄 **SQL Schema:** Complete PostgreSQL / MySQL compatible DDL script is available in [docs/schema.sql](docs/schema.sql).
-
 ---
 
 ## 🌟 Features (Version 1.0)
@@ -192,6 +189,7 @@ erDiagram
 - 📜 **Separated Enum Structures:** Domain enums (`Gender`, `CourseType`, `StudentStatus`, `AcademicTitle`, `DegreeLevel`, `Semester`, `PrerequisiteType`) are defined as dedicated types ensuring type safety.
 - 👥 **Student Registration Simulation:** Students are dynamically registered into `ArrayList<Student>` and formatted with their program, department, faculty, and academic term details.
 - 🛡️ **JavaBean Compliance:** `private` fields, public getters/setters, default and parameterized constructors, and custom `toString()` overrides across all 9 entities.
+- 📚 **Comprehensive Documentation:** Full technical PDF documentation ([Code_Documentation.pdf](Code_Documentation.pdf)) and the official assignment database schema ([Db-scheme.pdf](Db-scheme.pdf)) are attached in the repository root.
 
 ---
 
@@ -199,37 +197,29 @@ erDiagram
 
 ```text
 📦 student-information-system
- ┣ 📂 src
- ┃ ┣ 🏛️ Entity Classes
- ┃ ┃ ┣ 📄 BasePerson.java            # Abstract base class (Inheritance)
- ┃ ┃ ┣ 📄 AcademicTerm.java           # ACADEMIC_TERMS table
- ┃ ┃ ┣ 📄 Course.java                 # COURSES table
- ┃ ┃ ┣ 📄 CoursePrerequisite.java     # COURSE_PREREQUISITES table
- ┃ ┃ ┣ 📄 Department.java             # DEPARTMENTS table
- ┃ ┃ ┣ 📄 Faculty.java                # FACULTIES table
- ┃ ┃ ┣ 📄 Instructor.java             # INSTRUCTORS table (extends BasePerson)
- ┃ ┃ ┣ 📄 Program.java                # PROGRAMS table
- ┃ ┃ ┣ 📄 ProgramCourse.java          # PROGRAM_COURSES table
- ┃ ┃ ┗ 📄 Student.java                # STUDENTS table (extends BasePerson)
- ┃ ┃
- ┃ ┣ 🏷️ Enums
- ┃ ┃ ┣ 📄 AcademicTitle.java          # öğr.gör., dr., dr.öğr.üyesi, doç.dr., prof.dr.
- ┃ ┃ ┣ 📄 CourseType.java             # zorunlu, seçmeli, ASD
- ┃ ┃ ┣ 📄 DegreeLevel.java            # önlisans, lisans, yüksek_lisans, doktora
- ┃ ┃ ┣ 📄 Gender.java                 # E, K (MALE, FEMALE)
- ┃ ┃ ┣ 📄 PrerequisiteType.java       # ZORUNLU, ONERILEN
- ┃ ┃ ┣ 📄 Semester.java               # güz, bahar, yaz okulu
- ┃ ┃ ┗ 📄 StudentStatus.java          # aktif, mezun, kayıt donduruldu, ayrıldı
- ┃ ┃
- ┃ ┗ 🚀 Entry Point
- ┃   ┗ 📄 Main.java                   # Main simulation runner
- ┣ 📂 docs
- ┃ ┗ 📄 schema.sql                    # Full SQL DDL database schema
  ┣ 📂 out                             # Compiled bytecode (.class files)
- ┣ 📄 run.bat                         # 1-Click build & run script (Windows)
- ┣ 📄 run.sh                          # 1-Click build & run script (Linux/macOS)
- ┣ 📄 LICENSE                         # MIT License
- ┣ 📄 .gitignore                      # Git ignore rules for build artifacts
+ ┣ 📂 src                             # Java source files (Entity models & Enums)
+ ┃ ┣ 📄 BasePerson.java               # Abstract base class (Inheritance)
+ ┃ ┣ 📄 AcademicTerm.java             # ACADEMIC_TERMS table
+ ┃ ┣ 📄 AcademicTitle.java            # Academic title enum
+ ┃ ┣ 📄 Course.java                   # COURSES table
+ ┃ ┣ 📄 CoursePrerequisite.java       # COURSE_PREREQUISITES table
+ ┃ ┣ 📄 CourseType.java               # Course type enum
+ ┃ ┣ 📄 DegreeLevel.java              # Degree level enum
+ ┃ ┣ 📄 Department.java               # DEPARTMENTS table
+ ┃ ┣ 📄 Faculty.java                  # FACULTIES table
+ ┃ ┣ 📄 Gender.java                   # Gender enum (E, K)
+ ┃ ┣ 📄 Instructor.java               # INSTRUCTORS table (extends BasePerson)
+ ┃ ┣ 📄 Main.java                     # Main simulation runner
+ ┃ ┣ 📄 PrerequisiteType.java         # Prerequisite type enum
+ ┃ ┣ 📄 Program.java                  # PROGRAMS table
+ ┃ ┣ 📄 ProgramCourse.java            # PROGRAM_COURSES table
+ ┃ ┣ 📄 Semester.java                 # Academic semester enum
+ ┃ ┣ 📄 Student.java                  # STUDENTS table (extends BasePerson)
+ ┃ ┗ 📄 StudentStatus.java            # Student registration status enum
+ ┣ 📄 Code_Documentation.pdf          # Detailed technical documentation PDF
+ ┣ 📄 Db-scheme.pdf                   # Official assignment database schema PDF
+ ┣ 📄 .gitignore                      # Git ignore rules
  ┗ 📄 README.md                       # Comprehensive documentation
 ```
 
@@ -244,7 +234,7 @@ erDiagram
 | `FACULTIES` | `Faculty` | `dean` ➔ `Instructor` | - |
 | `DEPARTMENTS` | `Department` | `faculty` ➔ `Faculty`<br>`headInstructor` ➔ `Instructor` | - |
 | `PROGRAMS` | `Program` | `department` ➔ `Department` | `DegreeLevel` |
-| `STUDENTS` | `Student` | `extends BasePerson`<br>`program` ➔ `Program` | `Gender`, `StudentStatus` |
+| `STUDENTS` | `Student` | `extends BasePerson`<br>`program` ➔ `Program` | `Gender (E, K)`, `StudentStatus` |
 | `COURSES` | `Course` | `department` ➔ `Department` | `CourseType` |
 | `COURSE_PREREQUISITES` | `CoursePrerequisite` | `course` ➔ `Course`<br>`prerequisiteCourse` ➔ `Course` | `PrerequisiteType` |
 | `ACADEMIC_TERMS` | `AcademicTerm` | - | `Semester` |
@@ -253,15 +243,6 @@ erDiagram
 ---
 
 ## 🚀 Installation & Usage
-
-### Option 1: 1-Click Scripts
-
-- **Windows:** Double-click [`run.bat`](run.bat) (or run `./run.bat` in PowerShell/CMD).
-- **Linux / macOS:** Run `chmod +x run.sh && ./run.sh`.
-
----
-
-### Option 2: Terminal Commands
 
 1. **Compile the source code:**
    ```bash
